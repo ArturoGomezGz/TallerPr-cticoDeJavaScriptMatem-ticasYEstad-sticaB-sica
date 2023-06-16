@@ -1,3 +1,5 @@
+/* Calculo de areas y perimetros de figuras geometricas basicas */
+
 const ladoCuadrado = 5;
 const perimetroCuadrado = ladoCuadrado * 4;
 const areaCuadrado = ladoCuadrado * ladoCuadrado;
@@ -68,3 +70,14 @@ function calcularCirculo(r) {
 
 
 console.groupEnd("circle")
+
+/* calculo de altura de un triangulo isoseles */
+
+function calcularAlturaIsoseles(a,b) {
+    return{
+        altura: Math.sqrt((Math.pow(a,2))-((Math.pow(b,2))/4))
+    }
+}
+
+/* calculo de altura triangulo escaleno (reto) */
+
