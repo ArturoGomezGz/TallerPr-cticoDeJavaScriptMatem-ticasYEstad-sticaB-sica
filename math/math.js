@@ -81,3 +81,11 @@ function calcularAlturaIsoseles(a,b) {
 
 /* calculo de altura triangulo escaleno (reto) */
 
+/* Formula genral */
+
+function formulaGeneral(a,b,c) {
+    return{
+        x1: ((-b)+(Math.sqrt((Math.pow(b,2))-(a * c * 4))))/(2 * a),
+        x2: ((-b)-(Math.sqrt((Math.pow(b,2))-(a * c * 4))))/(2 * a),
+    }
+};
