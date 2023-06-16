@@ -38,3 +38,33 @@ function calcularCuadrado(l){
         area: l * l,
     }
 }
+
+console.group("circle")
+
+const radioCirculo = 3;
+const diametroCurculo = radioCirculo * 2;
+const pi = 3.1415;
+
+const circunferenciaCirculo = diametroCurculo * pi;
+const areaCirculo = (radioCirculo ** 2) * pi;
+
+console.log({
+    radioCirculo,
+    diametroCurculo,
+    pi,
+    circunferenciaCirculo,
+    areaCirculo,
+});
+
+
+function calcularCirculo(r) {
+    const d = r * 2
+    
+    return{
+        circunferencia: d * Math.PI,
+        area: Math.PI * Math.pow(r,2),
+    }
+}
+
+
+console.groupEnd("circle")
