@@ -5,11 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math</title>
+    <link rel="stylesheet" href="math.css">
 </head>
 <body>
-    <h2>Taller de matematicas con js</h2>
-
-    <p>Abre el inspector de codigo</p>
+    <section id="section-formula-general">
+        <h2>Formula general</h2>
+        <form action="">
+            <label for="">a</label>
+            <input type="number" id="fg-a">
+            <label for="">b</label>
+            <input type="number" id="fg-b">
+            <label for="">c</label>
+            <input type="number" id="fg-c">
+            <button onclick="formulaGeneral()">calcular</button>
+        </form>
+    </section>
+    <section id="section-descuento">
+        <h2>Descuentos</h2>
+        <form action="">
+            <label for="">Precio</label>
+            <input type="number" id="descuento-precio">
+            <label for="">Descuento</label>
+            <input type="number" id="descuento-porcent">
+            <button onclick="descuento()">calcular</button>
+        </form>
+    </section>
 </body>
 <script src="math.js"></script>
 </html>

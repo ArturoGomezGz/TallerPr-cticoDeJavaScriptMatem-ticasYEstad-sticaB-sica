@@ -81,11 +81,31 @@ function calcularAlturaIsoseles(a,b) {
 
 /* calculo de altura triangulo escaleno (reto) */
 
+
+
 /* Formula genral */
 
-function formulaGeneral(a,b,c) {
-    return{
-        x1: ((-b)+(Math.sqrt((Math.pow(b,2))-(a * c * 4))))/(2 * a),
-        x2: ((-b)-(Math.sqrt((Math.pow(b,2))-(a * c * 4))))/(2 * a),
-    }
+function formulaGeneral(){
+
+    const a = document.getElementById("fg-a");
+    const b = document.getElementById("fg-b");
+    const c = document.getElementById("fg-c");
+
+    var x1 = ((-b.value)+(Math.sqrt((Math.pow(b.value,2))-(a.value * c.value * 4))))/(2 * a.value);
+    var x2 = ((-b.value)-(Math.sqrt((Math.pow(b.value,2))-(a.value * c.value * 4))))/(2 * a.value);
+
+    alert("x1 = " + x1 + "       " + "x2 = " + x2)
 };
+
+
+/* calculador de descuento */
+
+function descuento(){
+
+    const precio = document.getElementById("descuento-precio");
+    const descuento = document.getElementById("descuento-porcent");
+
+    var precioFinal = ((Number(precio.value)) * (100 - Number(descuento.value)))/(100);
+
+    alert("Precio final = " + precioFinal)
+}
