@@ -98,7 +98,7 @@ function formulaGeneral(){
 };
 
 
-/* calculador de descuento */
+/* calculador de descuento (git checkout cupones)*/
 
 function descuento(){
 
