@@ -109,3 +109,62 @@ function descuento(){
 
     alert("Precio final = " + precioFinal)
 }
+
+/* Promedio, Mediana, Moda */
+
+let sueldos = [5,4,2,7,7,5,7,9,9,9,9,9];
+
+/* Promedio */
+
+function calcularPromedio(array){
+/*     let suma = 0;
+    let promedio = undefined;
+    for (x of array){
+        suma = suma + x;
+    };
+
+    promedio = suma / sumaSueldos;
+
+    console.log(promedio); */
+
+    const sumaArray = array.reduce((valorAcomulado, nuevoValor) => {
+        return valorAcomulado + nuevoValor;
+    });
+
+    const promedio = sumaArray / array.length;
+    console.log(promedio);
+}
+
+/* Mediana */
+
+function verificarPar(array){
+    if (array.length%2){
+        return false;
+    } else {
+        return true;
+    }
+}
+function sacarMitad(array){
+    mitad = array.length/2;
+}
+function organizarNumeros(array) {
+    function compareNumbers(a, b) {
+        return a - b;
+    }
+    sortArray = array.sort(compareNumbers);
+}
+
+function calcularMediana(array){
+    const arrayEsPar = verificarPar(array);
+    organizarNumeros(array);
+    sacarMitad(array);
+
+    if (arrayEsPar)/* la lista ES par */{
+        const mitad1 = array[mitad];
+        const mitad2 = array[mitad -1];
+        calcularPromedio([mitad1,mitad2])
+    } else /* la lista NO es par */ {
+        const mitadImpar = Math.floor(mitad);
+        calcularPromedio([sortArray[mitadImpar]]);
+    }
+}
