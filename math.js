@@ -207,3 +207,28 @@ function calcularModa(array) {
     console.log(mayor[0])
 }
 
+/* 
+    Reto: debes convertir las llaves y valores de un objeto 
+    en propiedades (id y name) de un objeto dentro de un array.
+*/
+
+const obj = {
+    123: 'Juanito Alcachofa',
+    456: 'Juanita Alcaparra',
+};
+
+const listaObj = [];
+
+function convertir(objeto){
+    const newArray = Object.entries(objeto);
+
+    for (let i = 0; i < newArray.length; i++) {
+        const element = newArray[i];
+        const objeto = {
+            id: element[0],
+            name: element[1],
+        };
+        listaObj.push(objeto);
+    }
+    console.log(listaObj);
+}
