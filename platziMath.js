@@ -113,7 +113,6 @@ function descuento() {
 
 /* Promedio, Mediana, Moda */
 
-let sueldos = [5, 4, 2, 7, 7, 5, 7, 9, 9, 9, 9, 9];
 
 /* Promedio */
 
@@ -163,10 +162,10 @@ PlatziMath.calcularMediana = function calcularMediana(array) {
     if (arrayEsPar)/* la lista ES par */ {
         const mitad1 = array[mitad];
         const mitad2 = array[mitad - 1];
-        calcularPromedio([mitad1, mitad2])
+        PlatziMath.calcularPromedio([mitad1, mitad2])
     } else /* la lista NO es par */ {
         const mitadImpar = Math.floor(mitad);
-        calcularPromedio([sortArray[mitadImpar]]);
+        PlatziMath.calcularPromedio([sortArray[mitadImpar]]);
     }
 }
 
