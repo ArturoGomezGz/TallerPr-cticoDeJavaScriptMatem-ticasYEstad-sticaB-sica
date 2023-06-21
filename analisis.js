@@ -1,4 +1,6 @@
-/* analisis Juanita */
+const AnalisisSalarial = [];
+const AnalisisEmpresarial = [];
+const empresas = {};
 
 const buscarPersona = (name) => {
     const persona = salarios.find((persona) => {
@@ -7,8 +9,6 @@ const buscarPersona = (name) => {
 
     return persona;
 }
-
-const AnalisisSalarial = [];
 
 AnalisisSalarial.mediana = (name) => {
     const trabajos = buscarPersona(name).trabajos;
@@ -49,6 +49,22 @@ AnalisisSalarial.proyeccion = (name) => {
 
     console.log("Proyección de salario: $" + proyeccion);
     return proyeccion
-
-
 }
+
+AnalisisEmpresarial.organizarEmpresas = () => {
+
+    for (persona of salarios){
+        for (trabajo of persona.trabajos){
+            if (!empresas[trabajo.empresa]) {
+                empresas[trabajo.empresa] = {};
+            };
+            if (!empresas[trabajo.empresa][trabajo.year]){
+                empresas[trabajo.empresa][trabajo.year] = [];
+            };
+
+            empresas[trabajo.empresa][trabajo.year].push(trabajo.salario);
+        };
+    }
+    return empresas
+}
+AnalisisEmpresarial.organizarEmpresas();
