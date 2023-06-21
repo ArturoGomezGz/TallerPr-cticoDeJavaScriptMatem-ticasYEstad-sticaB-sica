@@ -132,7 +132,7 @@ PlatziMath.calcularPromedio = function calcularPromedio(array) {
     });
 
     const promedio = sumaArray / array.length;
-    console.log(promedio);
+    return promedio
 }
 
 /* Mediana */
@@ -162,10 +162,10 @@ PlatziMath.calcularMediana = function calcularMediana(array) {
     if (arrayEsPar)/* la lista ES par */ {
         const mitad1 = array[mitad];
         const mitad2 = array[mitad - 1];
-        PlatziMath.calcularPromedio([mitad1, mitad2])
+        return PlatziMath.calcularPromedio([mitad1, mitad2])
     } else /* la lista NO es par */ {
         const mitadImpar = Math.floor(mitad);
-        PlatziMath.calcularPromedio([sortArray[mitadImpar]]);
+        return PlatziMath.calcularPromedio([sortArray[mitadImpar]]);
     }
 }
 
