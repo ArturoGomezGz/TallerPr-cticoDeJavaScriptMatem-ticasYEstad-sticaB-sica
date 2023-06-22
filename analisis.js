@@ -40,15 +40,15 @@ AnalisisSalarial.proyeccion = (name) => {
         porcentajesCrecimineto.push(porcentajeCrecimineto);
     }
     const medianaPorcentajesCrecimiento = PlatziMath.calcularMediana(porcentajesCrecimineto);
-    console.log("El porcentaje de crecimiento es del " + medianaPorcentajesCrecimiento + "%");
-
     const ultimoSalario = trabajos[trabajos.length - 1].salario;
     const aumentoProyectado = ultimoSalario * (medianaPorcentajesCrecimiento/100);
     const proyeccion = aumentoProyectado + ultimoSalario;
     
-
-    console.log("Proyección de salario: $" + proyeccion);
-    return proyeccion
+    const resultado = {
+        porcentajeCrecimiento: medianaPorcentajesCrecimiento,
+        proyeccion: proyeccion,
+    }
+    return resultado;
 }
 
 AnalisisEmpresarial.organizarEmpresas = () => {
@@ -68,3 +68,48 @@ AnalisisEmpresarial.organizarEmpresas = () => {
     return empresas
 }
 AnalisisEmpresarial.organizarEmpresas();
+
+AnalisisEmpresarial.medianaByYear = (nombre, year) => {
+    if (!empresas[nombre]){
+        console.warn("esta empresa no existe");
+    } else if (!empresas[nombre][year]) {
+        console.warn("la empresa no existia en ese año");
+    } else {
+        return PlatziMath.calcularMediana(empresas[nombre][year]);
+    }
+}
+AnalisisEmpresarial.proyeccionEmpresa = (nombre) => {
+    const proyeccion = (array) => {
+        const salarios = array;
+        let porcentajesCrecimineto = [];
+    
+        for (let i = 1; i < salarios.length; i++) {
+            const salarioActual = salarios[i];
+            const salarioAnterior = salarios[i - 1];
+            const crecimiento = salarioActual - salarioAnterior;
+            const porcentajeCrecimineto = (crecimiento / salarioAnterior)*100;
+            porcentajesCrecimineto.push(porcentajeCrecimineto);
+        }
+        const medianaPorcentajesCrecimiento = PlatziMath.calcularMediana(porcentajesCrecimineto);
+        const ultimoSalario = salarios[salarios.length - 1];
+        const aumentoProyectado = ultimoSalario * (medianaPorcentajesCrecimiento/100);
+        const proyeccion = aumentoProyectado + ultimoSalario;
+
+        const resultado = {
+            porcentajeCrecimiento: medianaPorcentajesCrecimiento,
+            proyeccion: proyeccion,
+        }
+        return resultado;
+    }
+    if(!empresas[nombre]){
+        console.warn("esta empresa no existe");
+    } else {
+        const years = Object.keys(empresas[nombre]);
+        const medianaYears = years.map((year) => {
+            return AnalisisEmpresarial.medianaByYear(nombre, year);
+        })
+
+        return proyeccion(medianaYears);
+
+    }
+}
